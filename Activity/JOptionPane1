@@ -1,0 +1,33 @@
+=import javax.swing.JOptionPane;
+
+public class JOptionpaneJava {
+    public static void main(String[] args) {
+        int highest = Integer.MIN_VALUE;
+        int lowesr = Integer.MAX_VALUE;
+
+        for (int i = 1; i <= 10; i++) {
+            String input = JOptionPane.showInputDialog(null, "Enter number " + i +" of 10:");
+
+            if (input == null) {
+                return;
+            }
+
+            int num = Integer.parseInt(input);
+
+            if (num > highest) {
+                highest = num;
+
+            }
+            if (num < lowest) {
+                lowest = num;
+            }
+        }
+
+        String result = "--- RESULTS ---\n" +
+                "Highest Number: " + highest + "\n" +
+                "Lowest Number:  " + lowest;
+
+        JOptionPane.showMessageDialog(null, result);
+
+    }
+}
