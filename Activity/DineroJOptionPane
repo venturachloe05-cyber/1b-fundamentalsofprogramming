@@ -1,0 +1,38 @@
+
+import javax.swing.JOptionPane;
+
+    public class DineroJoption {
+        public static void main(String[] args) {
+            double balance = 20000.00;
+            String inputStr;
+
+            while (true) {
+                inputStr = JOptionPane.showInputDialog(null,
+                        "Current Balance: P" + balance + "\nEnter a number (0 to terminate):",
+                        "Mucho Dinero Savings", JOptionPane.QUESTION_MESSAGE);
+
+                if (inputStr == null) break;
+
+                double input = Double.parseDouble(inputStr);
+
+                if (input == 0) {
+                    JOptionPane.showMessageDialog(null, "Program terminated. Final Balance: P" + balance);
+                    break;
+                }
+
+                if (input > 0) {
+                    balance += input;
+                    JOptionPane.showMessageDialog(null, "Deposited: P" + input + "\nOutstanding Balance: P" + balance);
+                } else {
+                    double withdrawalAmount = Math.abs(input);
+
+                    if (withdrawalAmount > balance) {
+                        JOptionPane.showMessageDialog(null, "INSUFFICIENT FUNDS!\nOutstanding Balance: P" + balance);
+                    } else {
+                        balance -= withdrawalAmount;
+                        JOptionPane.showMessageDialog(null, "Withdrawn: P" + withdrawalAmount + "\nOutstanding Balance: P" + balance);
+                    }
+                }
+            }
+        }
+    }
