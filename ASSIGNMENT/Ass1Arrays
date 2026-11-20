@@ -1,0 +1,18 @@
+import java.util.Arrays;
+
+public class Ass1 { // Ass1 ang pangalan ng class ko
+    public static void main(String[] args){ // method kung saan mag siismula
+
+        String[][] seats = { // Sa part na to gumawa ako ng SD array seats
+                {"Alice", "Bob", "Charlie"}, // Dito sa row 1 nilagay ko mga pangalan nila (index 0)
+                {"David", "Emma", "Frank"}, // nilagay ko pangalan nila sa row 2 (index 1)
+        }; // clinose ko na yong Array
+
+        System.out.println(seats[1][2]); // sa part na to pina print ko si Frank ( row 2, column 3)
+
+        seats[0][1] = "Vacant"; // Pinalitsn ko si Bob ng Vacant
+
+        System.out.println(Arrays.toString(seats)); // Dito pina print ko na ng buo ang Array sa iisang linya
+
+    } // Para sa part na to nilagyan ko lang ng brucket para isara buong code
+    }
