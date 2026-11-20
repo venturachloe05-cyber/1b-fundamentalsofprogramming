@@ -1,0 +1,27 @@
+public class QuizGrader { // Ginawa kong QuizGrader ang class ko
+    public static void main(String[] args) { // Main method kung saan magsisimula ang program
+
+        char[] answerKey = {'A', 'C', 'B', 'D', 'A', 'C', 'C', 'B', 'A', 'D'}; // Nilagay ko dito ang tamang sagot sa 10-item quiz
+        char[] studentAnswers = {'A', 'B', 'B', 'D', 'C', 'C', 'C', 'B', 'A', 'A'}; // Nilagay ko dito ang mga sagot ng estudyante
+
+        int correctCount = 0; // Gumawa ako ng counter para sa tamang sagot at sinimulan sa 0
+
+        for (int i = 0; i < answerKey.length; i++) { // Nag-loop ako mula 0 hanggang sa haba ng answerKey
+            if (studentAnswers[i] == answerKey[i]) { // Chineck ko lang kung pareho ang sagot ng estudyante at ang answer key
+                correctCount++; // Dinagdagan ko lang siya ng 1 correctCount kapag tama
+            } // Dulo ng if statement
+        } // Dulo ng grading loop
+
+        double scorePercentage = ((double) correctCount / answerKey.length) * 100; // Kinompute ko lang dito yung percentage na gamit ang double para may decimal
+
+        System.out.println("Correct Answers: " + correctCount + "/" + answerKey.length); // Pina-print ko ang score ng estudyante
+        System.out.println("Score Percentage: " + scorePercentage + "%"); // Pina-print ko lang ang percentage score
+
+        if (scorePercentage >= 70.0) { // Chineck ko kung umabot o lumagpas sa 70.0 ang percentage
+            System.out.println("Result: PASS"); // Pina-print ko ang PASS kung pasado
+        } else { // Kapag mababa sa 70.0 ang score
+            System.out.println("Result: FAIL"); // Pina-print ko ang FAIL kung bagsak
+        } // Dulo ng if-else
+
+    } // Dulo ng main method
+} // Dulo ng class
