@@ -1,0 +1,49 @@
+public class CoffeeShopAnalyzer { // CoffeeShopAnalyzer ang pangalan ng aking class
+    public static void main(String[] args) { // Main method kung saan mag sisimula ang program
+
+        // 1. Initialize the array
+        int[] weeklySales = {120, 145, 130, 155, 180, 210, 195}; // Sa part na to nilagay ko lang yung daily sales mula Monday to Sunday
+        String[] daysOfWeek = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"}; // Sa part naman na to nilagay ko lang yung mga
+
+        System.out.println("--- Daily Sales ---"); // I papa print ko lang dito yung buong header
+        for (int i = 0; i < weeklySales.length; i++) { // Nag-loop lang ako sa dito sa lahat ng mga elements
+            // Using the parallel array to print the actual day name
+            System.out.println(daysOfWeek[i] + " sales: " + weeklySales[i]); // Pina-print ko lang dito yung ang araw at benta sa araw na iyon
+        } // Ito yung dulo ng daily loop
+
+        int totalSales = 0;
+
+        for (int dailySale : weeklySales) { // Dito nag loop lang  ako sa bawat dailySale sa weeklySales
+            totalSales += dailySale; // Dinagdag ko lang ang bawat daily sale sa totalSales
+        } // Dulo ng for-each loop
+
+
+        double averageSales = (double) totalSales / weeklySales.length; // Kinompute ko ang average sales at nag-cast sa double para may decimal
+        System.out.println("\n--- Weekly Summary ---"); // Pina-print ko ang header ng weekly summary
+        System.out.println("Total Sales: " + totalSales + " cups"); // Pina-print ko ang kabuuang benta sa buong linggo
+        System.out.println("Average Daily Sales: " + averageSales + " cups"); // Pina-print ko ang average sales kada araw
+
+        // Part 4 & Bonus: Find the maximum and minimum sales values
+        int maxSales = weeklySales[0]; // Ginawa kong yung unang element ng array at ang initial maxSales
+        int minSales = weeklySales[0]; // Variables na kung saan na tra-track kung anong day ang worst or best day
+        String bestDay = daysOfWeek[0]; // Nilagay ko lang muna yung unang araw bilang bestDay
+        String worstDay = daysOfWeek[0]; // Start ng loop at index 1 since we already set max/min to index 0
+        for (int i = 1; i < weeklySales.length; i++) { // Nag-loop lang ako dito  mula index 1 hanggang sa dulo ng array
+
+            if (weeklySales[i] > maxSales) { // Chineck ko lang kung mas mataas yung current sale kaysa sa maxSales
+                maxSales = weeklySales[i]; bestDay = daysOfWeek[i]; // In-update ko ang maxSales at bestDay
+            } // Dulo ng if para sa maximum
+
+            // Check for new minimum
+            if (weeklySales[i] < minSales) { // Chineck ko kung mas mababa ang current sale kaysa sa minSales
+                minSales = weeklySales[i]; // In-update ko ang minSales sa mas mababang value
+                worstDay = daysOfWeek[i]; // In-update ko ang worstDay sa araw na iyon
+            } // Dulo ng if para sa minimum
+        } // Dulo ng loop para sa max at min
+
+        System.out.println("\n--- Bests and Worsts ---"); // prinint ko lang yung ang header ng best at worst day
+        System.out.println("Best day was " + bestDay + " with " + maxSales + " cups."); // Pinapa-print ko lang dito yung  best day at pinakamataas na benta
+        System.out.println("Slowest day was " + worstDay + " with " + minSales + " cups."); // Pina-print ko ang worst day at pinakamababang benta
+
+    } // Dulo ng main method
+} // Sa part na to yung dulo ng class
